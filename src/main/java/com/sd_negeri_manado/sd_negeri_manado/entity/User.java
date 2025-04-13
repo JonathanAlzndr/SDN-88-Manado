@@ -1,9 +1,15 @@
 package com.sd_negeri_manado.sd_negeri_manado.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Table(name="penggguna")
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="pengguna")
 public class User {
 
     @Id
