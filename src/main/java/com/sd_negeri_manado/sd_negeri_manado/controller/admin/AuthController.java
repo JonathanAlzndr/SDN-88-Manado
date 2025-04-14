@@ -37,10 +37,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String registerUser( @RequestParam String username,
-                                @RequestParam String password,
-                                @RequestParam String email,
-                                @RequestParam String name) {
+    public String registerUser(
+            @RequestParam("username") String username,
+            @RequestParam("password") String password,
+            @RequestParam("email") String email,
+            @RequestParam("name") String name) 
+    {
         if (userRepository.findByUsername(username).isPresent()) {
             return "Username sudah digunakan!";
         }
