@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Berita</title>
+    <title>Prestasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-                                                      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-                                                      crossorigin="anonymous" />
-    <link rel="stylesheet" href="../static/css/static.css" />
-    <link rel="icon" href="../static/favicon.ico">
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" th:href="@{/css/static.css}" />
+    <link rel="icon" th:href="@{/favicon.ico}">
 </head>
 
 <body>
@@ -18,7 +18,7 @@
             <div class="container text-center my-4">
                 <div class="row">
                     <div class="col-2">
-                        <img src="../static/sekolah.png" class="img-thumbnail logo w-50" alt="Logo Sekolah" />
+                        <img th:src="@{/sekolah.png}" class="img-thumbnail logo w-50" alt="Logo Sekolah" />
                     </div>
                     <div class="col-9">
                         <div class="row row-cols-1">
@@ -82,38 +82,32 @@
     <main class="d-flex flex-column align-items-center">
         <div class="w-75">
             <div class="mb-3 text-start">
-                <button type="button" class="btn btn-success">Tambah Berita</button>
+                <a th:href="@{/admin/prestasi/tambah}" class="btn btn-success">Tambah Berita</a>
             </div>
             <table class="table table-secondary table-striped table-hover">
-                <tr class="">
+                <thead>
+                <tr>
                     <td>No</td>
                     <td>Judul</td>
-                    <td>Keterangan</td>
+                    <td>Gambar</td>
                     <td>Tanggal</td>
                     <td>Aksi</td>
                 </tr>
-                <tr id="baris">
-                    <td>1. </td>
-                    <td>Hari Raya Idul Fitri</td>
-                    <td>Libur</td>
-                    <td>1/4/2025</td>
+                </thead>
+                <tbody>
+                <tr id="baris" th:each="achievement, iterStat : ${listAchievement}">
+                    <td th:text="${iterStat.index + 1}"></td>
+                    <td th:text="${achievement.description}"></td>
+                    <td><img th:src="@{'/images/' + ${achievement.imageUrl}}" alt="Gambar Prestasi" width="100" height="80"></td>
+                    <td th:text="${achievement.date.toString().substring(0, 10)}"></td>
                     <td>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm">Close</button>
+                        <a th:href="@{/admin/prestasi/edit(id=${achievement.id})}" class="btn btn-primary btn-sm">Edit</a>
+                        <a th:href="@{/admin/prestasi/delete(id=${achievement.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Apa kamu yakin?')">Hapus</a>
                     </td>
                 </tr>
-                <tr id="baris">
-                    <td>2. </td>
-                    <td>Jumat Agung</td>
-                    <td>Libur</td>
-                    <td>18/4/2025</td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm">Close</button>
-                    </td>
-                </tr>
+                </tbody>
+            </table>
         </div>
-        </table>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
