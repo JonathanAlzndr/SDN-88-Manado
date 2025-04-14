@@ -3,6 +3,8 @@ package com.sd_negeri_manado.sd_negeri_manado.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @Setter
 @Getter
@@ -21,4 +23,6 @@ public class Achievement {
 
     @Column(name = "keterangan")
     private String description;
+
+    private Date date;
 }

@@ -1,4 +1,4 @@
-package com.sd_negeri_manado.sd_negeri_manado.controller;
+package com.sd_negeri_manado.sd_negeri_manado.controller.admin;
 
 import com.sd_negeri_manado.sd_negeri_manado.entity.User;
 import com.sd_negeri_manado.sd_negeri_manado.repository.UserRepository;
@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class LoginController {
+public class AuthController {
 
     @Autowired
     private UserRepository userRepository;
 
-
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
 
     @Autowired
     PasswordEncoder encoder;
@@ -29,12 +28,12 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login() {
-        return "login";
+        return "admin/auth/login";
     }
 
     @GetMapping("/dashboard")
     public String dashboard() {
-        return "dashboard";  // Halaman yang diakses setelah login berhasil
+        return "admin/dashboard/dashboard";
     }
 
     @PostMapping("/register")
