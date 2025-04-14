@@ -1,8 +1,15 @@
 package com.sd_negeri_manado.sd_negeri_manado.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 
 @Entity
+@Setter
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="ekstrakurikuler")
 public class Extracurricular {
     @Id
