@@ -21,4 +21,7 @@ public class Extracurricular {
 
     @Column(name="keterangan")
     private String description;
+
+    @Column(name="penanggung_jawab")
+    private String stakeHolder;
 }
