@@ -43,7 +43,7 @@ public class WebSecurity  {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/login", "/css/**", "/img/**", "/register", "/public/images/**").permitAll()
+                                .requestMatchers("/login", "/css/**", "/img/**", "/register", "/public/images/**", "/static/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(login ->
