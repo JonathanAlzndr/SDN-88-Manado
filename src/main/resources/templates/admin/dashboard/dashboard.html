@@ -70,7 +70,7 @@
                                 <form th:action="@{/logout}" method="post" style="margin: 0;">
                                     <button type="submit" class="dropdown-item">Keluar</button>
                                 </form>
-                                <li><a class="dropdown-item" href="#">Ubah Sandi</a></li>
+                                <li><a class="dropdown-item" th:href="@{/admin/ganti-password}">Ubah Sandi</a></li>
                             </ul>
                         </li>
                     </ul>
