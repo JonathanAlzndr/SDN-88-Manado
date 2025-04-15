@@ -1,9 +1,7 @@
 package com.sd_negeri_manado.sd_negeri_manado.controller.admin;
 
 import com.sd_negeri_manado.sd_negeri_manado.entity.Achievement;
-import com.sd_negeri_manado.sd_negeri_manado.entity.News;
 import com.sd_negeri_manado.sd_negeri_manado.model.AchievementDto;
-import com.sd_negeri_manado.sd_negeri_manado.model.NewsDto;
 import com.sd_negeri_manado.sd_negeri_manado.repository.AchievementRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
