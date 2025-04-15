@@ -72,7 +72,9 @@
                                             Pengaturan
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                                            <form th:action="@{/logout}" method="post" style="margin: 0;">
+                                    <button type="submit" class="dropdown-item">Keluar</button>
+                                </form>
                                             <li><a class="dropdown-item" href="#">Ubah Sandi</a></li>
                                         </ul>
                                     </li>
