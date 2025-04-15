@@ -8,51 +8,51 @@ public class UserController {
 
     @GetMapping("/")
     public String beranda() {
-        return "beranda";
+        return "/user/beranda";
     }
 
     @GetMapping("/berita")
     public String berita() {
-        return "berita";
+        return "/user/berita";
     }
 
     @GetMapping("/ekstrakurikuler")
     public String ekstrakurikuler() {
-        return "ekstrakurikuler";
+        return "/user/ekstrakurikuler";
     }
 
     @GetMapping("/galeri")
     public String galeri() {
-        return "galeri";
+        return "/user/galeri";
     }
 
     @GetMapping("/kontak")
     public String kontak() {
-        return "kontak";
+        return "/user/kontak";
     }
 
     @GetMapping("/prestasi")
     public String prestasi() {
-        return "prestasi";
+        return "/user/prestasi";
     }
 
     @GetMapping("/profile")
     public String profil() {
-        return "profile";
+        return "/user/profile";
     }
 
     @GetMapping("/program")
     public String program() {
-        return "program";
+        return "/user/program";
     }
 
     @GetMapping("/struktur-organisasi")
     public String strukturOrganisasi() {
-        return "struktur-organisasi";
+        return "/user/struktur-organisasi";
     }
 
     @GetMapping("/visi-misi")
     public String visiMisi() {
-        return "visi-misi";
+        return "/user/visi-misi";
     }
 }

@@ -43,7 +43,7 @@ public class WebSecurity  {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/login", "/css/**", "/img/**", "/register", "/public/images/**", "/static/**").permitAll()
+                                .requestMatchers("/", "/login", "/css/**", "/img/**", "/register", "/public/images/**", "/static/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(login ->
@@ -56,7 +56,7 @@ public class WebSecurity  {
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutSuccessUrl("/")
                 );
 
         return http.build();

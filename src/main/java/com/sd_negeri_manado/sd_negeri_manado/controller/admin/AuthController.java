@@ -46,7 +46,6 @@ public class AuthController {
         if (userRepository.findByUsername(username).isPresent()) {
             return "Username sudah digunakan!";
         }
-
         User user = new User();
         user.setUsername(username);
         user.setEmail(email);

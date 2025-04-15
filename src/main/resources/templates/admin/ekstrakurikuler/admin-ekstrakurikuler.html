@@ -71,7 +71,9 @@
                                             Pengaturan
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                                            <form th:action="@{/logout}" method="post" style="margin: 0;">
+                                                <button type="submit" class="dropdown-item">Keluar</button>
+                                            </form>
                                             <li><a class="dropdown-item" href="#">Ubah Sandi</a></li>
                                         </ul>
                                     </li>
@@ -92,13 +94,13 @@
             </div>
             <table class="table table-secondary table-striped table-hover">
                 <thead>
-                <tr>
-                    <td>No</td>
-                    <td>Judul</td>
-                    <td>Gambar</td>
-                    <td>Penanggung Jawab</td>
-                    <td>Aksi</td>
-                </tr>
+                    <tr>
+                        <td>No</td>
+                        <td>Judul</td>
+                        <td>Gambar</td>
+                        <td>Penanggung Jawab</td>
+                        <td>Aksi</td>
+                    </tr>
                 </thead>
                 <tbody>
                 <tr id="baris" th:each="extracurricular, iterStat : ${listExtracurricular}">
