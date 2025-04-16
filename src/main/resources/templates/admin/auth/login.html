@@ -13,12 +13,12 @@
     <style>
         .card {
             animation-name: login;
-            animation-duration: 4s;
+            animation-duration: 3s;
         }
     </style>
 </head>
 
-<body>  
+<body>
     <br><br><br>
     <div class="container text-center">
         <div class="row">
@@ -27,31 +27,31 @@
             <div class="col">
                 <div class="card bg-danger">
                     <div class=" card-body">
-                    <h2 class="text-light">Login</h2>
-                    <form th:action="@{/login}" method="post">
-                        <div th:if="${param.error}">
-                            <div class="alert alert-danger">
-                                Invalid username or password
+                        <h2 class="text-light mb-4">Login</h2>
+                        <form th:action="@{/login}" method="post">
+                            <div th:if="${param.error}">
+                                <div class="alert alert-danger">
+                                    Invalid username or password
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" name="username"
-                                                                              placeholder="username" required>
-                            <label for="floatingInput">Username</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" name="password"
-                                                                              placeholder="Password" required>
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <button type="submit" class="btn btn-light mt-3 w-50">LOGIN</button>
-                    </form>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" name="username"
+                                                                                  placeholder="username" required>
+                                <label for="floatingInput">Username</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="floatingPassword" name="password"
+                                                                                  placeholder="Password" required>
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button type="submit" class="btn btn-light mt-3 w-50">LOGIN</button>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <div class="col">
+            </div>
         </div>
-        <div class="col">
-        </div>
-    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
