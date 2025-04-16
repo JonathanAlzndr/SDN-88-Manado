@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Galeri</title>
+    <title>Kontak</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
                                                       integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
                                                       crossorigin="anonymous" />
@@ -20,14 +20,14 @@
                     <div class="col-1 d-flex justify-content-start">
                         <img th:src="@{/sekolah.png}" class="img-thumbnail logo w-75" alt="Logo Sekolah" />
                     </div>
-    
+
                     <div class="col-11">
                         <div class="row">
                             <div class="col text-center">
                                 <p class="h1 text-white m-0">SD NEGERI 88 MANADO</p>
                             </div>
                         </div>
-    
+
                         <div class="row mt-2">
                             <div class="col">
                                 <ul class="navbar-nav justify-content-end d-flex">
@@ -42,7 +42,9 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" th:href="@{/admin/profile}">Deskripsi</a></li>
                                             <li><a class="dropdown-item" th:href="@{/admin/visi-misi}">Visi & Misi</a></li>
-                                            <li><a class="dropdown-item" th:href="@{/admin/struktur-organisasi}">Struktur Organisasi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/struktur-organisasi}">Struktur
+                                                    Organisasi</a>
+                                            </li>
                                             <li><a class="dropdown-item" th:href="@{/admin/program}">Program</a></li>
                                         </ul>
                                     </li>
@@ -65,8 +67,11 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown px-2">
+                                        <a class="nav-link text-white" th:href="@{/admin/kontak}">Kontak</a>
+                                    </li>
+                                    <li class="nav-item dropdown px-2">
                                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                                                                          data-bs-toggle="dropdown">
+                                           data-bs-toggle="dropdown">
                                             Pengaturan
                                         </a>
                                         <ul class="dropdown-menu">
@@ -84,36 +89,64 @@
             </div>
         </nav>
     </header>
-    <br>
-    <!-- beranda -->
-    <main class="d-flex flex-column align-items-center">
-        <div class="w-75">
-            <div class="mb-3 text-start">
-                <a th:href="@{/admin/galeri/tambah}" class="btn btn-success">Tambah Gambar</a>
+    <br><br><br>
+    <!-- program -->
+    <main>
+        <div class="grid text-center">
+            <div class="g-col-12 g-start-1">
+                <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-body">
+                        <h1>Kontak</h1>
+                    </div>
+                </div>
             </div>
-            <table class="table table-secondary table-striped table-hover">
-                <thead>
-                    <tr>
-                        <td>No</td>
-                        <td>Gambar</td>
-                        <td>Keterangan</td>
-                        <td>Aksi</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="baris" th:each="galery, iterStat : ${listGalery}">
-                        <td th:text="${iterStat.index + 1}"></td>
-                        <td><img th:src="@{'/images/' + ${galery.imageUrl}}" alt="Gambar Galery" width="100"
-                                                                              height="80"></td>
-                        <td th:text="${galery.description}"></td>
-                        <td>
-                            <a th:href="@{/admin/galeri/edit(id=${galery.id})}" class="btn btn-primary btn-sm">Edit</a>
-                            <a th:href="@{/admin/galeri/delete(id=${galery.id})}" class="btn btn-danger btn-sm"
-                                                                              onclick="return confirm('Apa kamu yakin?')">Hapus</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <br><br>
+            <div class="g-col-12 g-start-1">
+                <div class="card w-50 shadow p-3 mb-5 bg-body-tertiary rounded">
+                    <div class="card-body">
+                        <h4>Hubungi Kami</h4>
+                        <ul class="list-group list-group-flush text-start">
+                            <li class="list-group-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                                                  class="bi bi-geo-alt"
+                                                                                  viewBox="0 0 16 16">
+                                    <path
+                                                                                      d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                </svg>
+                                Jl. Nani Wartabone No. 67 Kombos Timur, Kecamatan Singkil, Kota
+                                Manado.
+                            </li>
+                            <li class="list-group-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                                                  class="bi bi-telephone"
+                                                                                  viewBox="0 0 16 16">
+                                    <path
+                                                                                      d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                                </svg>
+                                +62 0000 0000 0000
+                            </li>
+                            <li class="list-group-item"><a href="">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                                                      class="bi bi-envelope"
+                                                                                      viewBox="0 0 16 16">
+                                        <path
+                                                                                          d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                                    </svg>
+                                    sdnegeri88manado@gmail.com</a></li>
+                            <li class="list-group-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                                                  class="bi bi-facebook"
+                                                                                  viewBox="0 0 16 16">
+                                    <path
+                                                                                      d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                                </svg>
+                                SD NEGERI 88 MANADO
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 

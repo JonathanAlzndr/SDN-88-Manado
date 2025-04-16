@@ -40,11 +40,11 @@
                                             Profil
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#deskripsi">Deskripsi</a></li>
-                                            <li><a class="dropdown-item" href="#visiMisi">Visi & Misi</a></li>
-                                            <li><a class="dropdown-item" href="#strukturOrganisasi">Struktur Organisasi</a>
+                                            <li><a class="dropdown-item" th:href="@{/admin/profile}">Deskripsi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/visi-misi}">Visi & Misi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/struktur-organisasi}">Struktur Organisasi</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="#program">Program</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/program}">Program</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item px-2">
@@ -90,7 +90,7 @@
     <main class="d-flex flex-column align-items-center">
         <div class="w-75">
             <div class="mb-3 text-start">
-                <a th:href="@{/admin/prestasi/tambah}" class="btn btn-success">Tambah Berita</a>
+                <a th:href="@{/admin/prestasi/tambah}" class="btn btn-success">Tambah Prestasi</a>
             </div>
             <table class="table table-secondary table-striped table-hover">
                 <thead>

@@ -40,12 +40,12 @@
                                             Profil
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#deskripsi">Deskripsi</a></li>
-                                            <li><a class="dropdown-item" href="#visiMisi">Visi & Misi</a></li>
-                                            <li><a class="dropdown-item" href="#strukturOrganisasi">Struktur
+                                            <li><a class="dropdown-item" th:href="@{/admin/profile}">Deskripsi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/visi-misi}">Visi & Misi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/struktur-organisasi}">Struktur
                                                     Organisasi</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="#program">Program</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/program}">Program</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item px-2">
@@ -62,7 +62,7 @@
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" th:href="@{/admin/prestasi}">Prestasi</a></li>
                                             <li><a class="dropdown-item"
-                                                                                                  th:href="@{/admin/ekstrakurikuler}">Ekstrakurikuler</a>
+                                                   th:href="@{/admin/ekstrakurikuler}">Ekstrakurikuler</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -75,7 +75,7 @@
                                             <form th:action="@{/logout}" method="post" style="margin: 0;">
                                                 <button type="submit" class="dropdown-item">Keluar</button>
                                             </form>
-                                            <li><a class="dropdown-item" href="#">Ubah Sandi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/ganti-password}">Ubah Sandi</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -120,7 +120,6 @@
                 </tbody>
             </table>
         </div>
-        </table>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

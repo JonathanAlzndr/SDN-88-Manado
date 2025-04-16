@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center w-100">
                     <div class="col-1 d-flex justify-content-start">
-                        <img th:src="@{/sekolah.png}" class="img-thumbnail logo w-75" alt="Logo Sekolah" />
+                        <img th:src="@{/static/sekolah.png}" class="img-thumbnail logo w-75" alt="Logo Sekolah" />
                     </div>
 
                     <div class="col-11">
@@ -32,7 +32,7 @@
                             <div class="col">
                                 <ul class="navbar-nav justify-content-end d-flex">
                                     <li class="nav-item px-2">
-                                        <a class="nav-link text-white" th:href="@{/dashboard}">Beranda</a>
+                                        <a class="nav-link text-white" th:href="@{/beranda}">Beranda</a>
                                     </li>
                                     <li class="nav-item dropdown px-2">
                                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
@@ -40,19 +40,19 @@
                                             Profil
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#deskripsi">Deskripsi</a></li>
-                                            <li><a class="dropdown-item" href="#visiMisi">Visi & Misi</a></li>
-                                            <li><a class="dropdown-item" href="#strukturOrganisasi">Struktur
+                                            <li><a class="dropdown-item" th:href="@{/profile}">Deskripsi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/visi-misi}">Visi & Misi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/struktur-organisasi}">Struktur
                                                     Organisasi</a>
                                             </li>
-                                            <li><a class="dropdown-item" href="#program">Program</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/program}">Program</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item px-2">
-                                        <a class="nav-link text-white" th:href="@{/admin/berita}">Berita</a>
+                                        <a class="nav-link text-white" th:href="@{/berita}">Berita</a>
                                     </li>
                                     <li class="nav-item px-2">
-                                        <a class="nav-link text-white" th:href="@{/admin/galeri}">Galeri</a>
+                                        <a class="nav-link text-white" th:href="@{/galeri}">Galeri</a>
                                     </li>
                                     <li class="nav-item dropdown px-2">
                                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
@@ -60,17 +60,17 @@
                                             Informasi Sekolah
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" th:href="@{/admin/prestasi}">Prestasi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/prestasi}">Prestasi</a></li>
                                             <li><a class="dropdown-item"
-                                                                                                  th:href="@{/admin/ekstrakurikuler}">Ekstrakurikuler</a>
+                                                                                                  th:href="@{/ekstrakurikuler}">Ekstrakurikuler</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown px-2">
-                                        <a class="nav-link text-white" th:href="@{/admin/kontak}">Kontak</a>
+                                        <a class="nav-link text-white" th:href="@{/kontak}">Kontak</a>
                                     </li>
                                     <li class="nav-item dropdown px-2">
-                                        <a class="nav-link text-white" th:href="@{/admin/kontak}">Login</a>
+                                        <a class="nav-link text-white" th:href="@{/login}">Login</a>
                                     </li>
                                 </ul>
                             </div>
@@ -81,46 +81,33 @@
         </nav>
     </header>
     <br>
-    <!-- galeri -->
     <main>
         <div class="grid text-center">
             <div class="g-col-12 g-start-1">
-                <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
+                <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded mx-auto">
                     <div class="card-body">
-                        <h1>Galeri</h1>
-                        <p class="card-text"></p>
+                        <h1>Prestasi</h1>
                     </div>
                 </div>
-            </div>
-            <div class="g-col-12 g-start-1">
-
             </div>
         </div>
+
         <div class="container-fluid text-center">
-            <div class="row g-0 row-cols-2">
-                <div class="col-6">
-                    <div class="card w-50 shadow p-3 mb-5 bg-body-tertiary rounded">
-                        <img src="https://i.pinimg.com/736x/dd/69/ec/dd69ecf240a91a830478b3e121e5a25e.jpg"
-                                                                          class="card-img-top" alt="gambar">
+            <div class="row g-0 row-cols-2 row-cols-2 justify-content-center">
+                <div class="col-4" th:each="prestasi : ${prestasiList}">
+                    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded mx-auto" style="width: 18rem;">
+                        <img th:src="@{'/images/' + ${prestasi.imageUrl}}" class="card-img-top" alt="gambar prestasi" />
                         <div class="card-body">
-                            <p class="h5">• Juara 1 Lomba Pidato Bahasa Indonesia Tingkat Kecamatan (2-5-2024)</p>
-                            <p class="card-text text-sm-center"></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card w-50 shadow p-3 mb-5 bg-body-tertiary rounded">
-                        <img src="https://i.pinimg.com/564x/8e/99/63/8e9963321e80a3a4ef56c0bb6a3ead8c.jpg"
-                                                                          class="card-img-top" alt="gambar">
-                        <div class="card-body">
-                            <p class="h5">• Juara 2 Lomba Gerak Jalan Tingkat Kota Manado (17-8-2024)</p>
-                            <p class="card-text text-sm-center"></p>
+                            <p class="h5" th:text="'• ' + ${prestasi.description}"></p>
+                            <p class="text-muted" th:text="${#dates.format(prestasi.date, 'dd-MM-yyyy')}"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
                                                       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

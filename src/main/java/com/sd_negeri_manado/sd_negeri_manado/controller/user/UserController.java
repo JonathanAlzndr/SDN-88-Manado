@@ -1,10 +1,37 @@
 package com.sd_negeri_manado.sd_negeri_manado.controller.user;
 
+import com.sd_negeri_manado.sd_negeri_manado.entity.Achievement;
+import com.sd_negeri_manado.sd_negeri_manado.entity.Extracurricular;
+import com.sd_negeri_manado.sd_negeri_manado.entity.Galery;
+import com.sd_negeri_manado.sd_negeri_manado.entity.News;
+import com.sd_negeri_manado.sd_negeri_manado.repository.AchievementRepository;
+import com.sd_negeri_manado.sd_negeri_manado.repository.ExtracurricularRepository;
+import com.sd_negeri_manado.sd_negeri_manado.repository.GaleryRepository;
+import com.sd_negeri_manado.sd_negeri_manado.repository.NewsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 public class UserController {
+
+
+    @Autowired
+    private AchievementRepository achievementRepository;
+
+    @Autowired
+    private NewsRepository newsRepository;
+
+    @Autowired
+    private ExtracurricularRepository extracurricularRepository;
+
+    @Autowired
+    private GaleryRepository galeryRepository;
 
     @GetMapping("/")
     public String beranda() {
@@ -12,17 +39,31 @@ public class UserController {
     }
 
     @GetMapping("/berita")
-    public String berita() {
+    public String berita(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+        List<News> beritaList;
+        if (keyword != null && !keyword.isEmpty()) {
+            beritaList = newsRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
+        } else {
+            beritaList = newsRepository.findAll();
+        }
+
+        model.addAttribute("beritaList", beritaList);
+        model.addAttribute("keyword", keyword); // supaya input tetap ada nilainya
         return "/user/berita";
     }
 
+
     @GetMapping("/ekstrakurikuler")
-    public String ekstrakurikuler() {
+    public String ekstrakurikuler(Model model) {
+        List<Extracurricular> list = extracurricularRepository.findAll();
+        model.addAttribute("ekskulList", list);
         return "/user/ekstrakurikuler";
     }
 
     @GetMapping("/galeri")
-    public String galeri() {
+    public String galeri(Model model) {
+        List<Galery> galeriList = galeryRepository.findAll();
+        model.addAttribute("galeriList", galeriList);
         return "/user/galeri";
     }
 
@@ -32,7 +73,9 @@ public class UserController {
     }
 
     @GetMapping("/prestasi")
-    public String prestasi() {
+    public String prestasi(Model model) {
+        List<Achievement> prestasiList = achievementRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        model.addAttribute("prestasiList", prestasiList);
         return "/user/prestasi";
     }
 

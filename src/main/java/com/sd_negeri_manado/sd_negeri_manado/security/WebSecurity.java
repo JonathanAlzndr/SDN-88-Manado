@@ -21,45 +21,61 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
-public class WebSecurity  {
+public class WebSecurity {
     @Autowired
     CustomUserDetailService userDetailsService;
 
     @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration authenticationConfiguration
-    ) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/", "/login", "/css/**", "/img/**", "/register", "/public/images/**", "/static/**").permitAll()
-                                .anyRequest().authenticated()
+                                .requestMatchers(
+                                        "/",
+                                        "/login",
+                                        "/css/**",
+                                        "/img/**",
+                                        "/images/**",
+                                        "/static/**",  // Pengecualian akses untuk /static/**
+                                        "/prestasi",
+                                        "/berita",
+                                        "/ekstrakurikuler",
+                                        "/galeri",
+                                        "/kontak",
+                                        "/beranda",
+                                        "/profile",
+                                        "/program",
+                                        "/struktur-organisasi",
+                                        "/visi-misi"
+                                ).permitAll()
+                                .anyRequest().authenticated()  // Semua request lainnya butuh autentikasi
                 )
                 .formLogin(login ->
                         login.loginPage("/login")
                                 .defaultSuccessUrl("/dashboard", true)
                                 .permitAll()
                 )
-                .logout(logout -> logout
-                        .permitAll()
-                        .invalidateHttpSession(true)
-                        .clearAuthentication(true)
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessUrl("/")
+                .logout(logout ->
+                        logout.permitAll()
+                                .invalidateHttpSession(true)
+                                .clearAuthentication(true)
+                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                                .logoutSuccessUrl("/")
                 );
 
         return http.build();
     }
-
 }
+
