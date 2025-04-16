@@ -10,4 +10,4 @@ public class SdNegeriManadoApplication {
 		SpringApplication.run(SdNegeriManadoApplication.class, args);
 	}
 
-}
+}	
