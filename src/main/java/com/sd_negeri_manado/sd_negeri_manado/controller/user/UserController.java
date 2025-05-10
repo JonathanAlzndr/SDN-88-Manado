@@ -34,7 +34,13 @@ public class UserController {
     private GaleryRepository galeryRepository;
 
     @GetMapping("/")
-    public String beranda() {
+    public String home() {
+        return "/user/beranda";
+    }
+
+    @GetMapping("/beranda")
+
+    public String beranda(){
         return "/user/beranda";
     }
 

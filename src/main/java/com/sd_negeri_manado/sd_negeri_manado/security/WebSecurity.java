@@ -66,6 +66,7 @@ public class WebSecurity {
                 .formLogin(login ->
                         login.loginPage("/login")
                                 .defaultSuccessUrl("/dashboard", true)
+                                .failureUrl("/")
                                 .permitAll()
                 )
                 .logout(logout ->
