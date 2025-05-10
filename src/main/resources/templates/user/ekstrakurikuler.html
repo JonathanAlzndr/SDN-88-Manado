@@ -18,7 +18,7 @@
             <div class="container-fluid d-flex flex-column">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <div class="d-flex align-items-center">
-                        <img src="../img/sekolah.png" class="logo-img w-75 h-75" alt="Logo Sekolah" />
+                        <img th:src="@{/sekolah.png}" class="logo-img w-75 h-75" alt="Logo Sekolah" />
                     </div>
 
                     <div class="text-center flex-grow-1">
@@ -75,8 +75,14 @@
         <div class="container mb-5">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <div class="py-4 px-2 mb-4" style="background:#a0a09b;">
-                        <h2 class="text-center fw-bold m-0">Ekstrakurikuler</h2>
+                    <div class="grid text-center">
+                        <div class="g-col-12 g-start-1">
+                            <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded mx-auto">
+                                <div class="card-body">
+                                    <p class="h1">Ekstrakurikuler</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

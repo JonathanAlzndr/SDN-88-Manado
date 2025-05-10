@@ -41,8 +41,10 @@
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" th:href="@{/admin/profile}">Deskripsi</a></li>
-                                            <li><a class="dropdown-item" th:href="@{/admin/visi-misi}">Visi & Misi</a></li>
-                                            <li><a class="dropdown-item" th:href="@{/admin/struktur-organisasi}">Struktur
+                                            <li><a class="dropdown-item" th:href="@{/admin/visi-misi}">Visi & Misi</a>
+                                            </li>
+                                            <li><a class="dropdown-item"
+                                                                                                  th:href="@{/admin/struktur-organisasi}">Struktur
                                                     Organisasi</a>
                                             </li>
                                             <li><a class="dropdown-item" th:href="@{/admin/program}">Program</a></li>
@@ -71,14 +73,15 @@
                                     </li>
                                     <li class="nav-item dropdown px-2">
                                         <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                           data-bs-toggle="dropdown">
+                                                                                          data-bs-toggle="dropdown">
                                             Pengaturan
                                         </a>
                                         <ul class="dropdown-menu">
                                             <form th:action="@{/logout}" method="post" style="margin: 0;">
                                                 <button type="submit" class="dropdown-item">Keluar</button>
                                             </form>
-                                            <li><a class="dropdown-item" th:href="@{/admin/ganti-password}">Ubah Sandi</a></li>
+                                            <li><a class="dropdown-item" th:href="@{/admin/ganti-password}">Ubah
+                                                    Sandi</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -92,21 +95,20 @@
     <br><br><br>
     <!-- struktur organisasi -->
     <main>
-        <div class="grid text-center">
-            <div class="g-col-12 g-start-1">
-                <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <div class="card-body">
-                        <h1>Profil</h1>
+        <div class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="card shadow p-3 mb-4 rounded" style="background:#a0a09b;">
+                        <div class="card-body text-center">
+                            <h1 class="mb-4">Profil</h1>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <br><br>
-            <div class="g-col-12 g-start-1">
-                <div class="card w-75 w-75 shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <div class="card-body">
-                        <h1>Struktur Organisasi</h1>
-                        <img src="@{/struktur.jpg}" class="img-fluid w-100 p-3 h-25" alt="gambar">
-                        <p class="card-text fs-3"></p>
+                    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+                        <div class="card-body text-center">
+                            <h1 class="mb-4">Struktur Organisasi</h1>
+                            <img th:src="@{/struktur.jpg}" class="img-fluid w-100 p-3 h-25" alt="gambar">
+                            <p class="card-text fs-3"></p>
+                        </div>
                     </div>
                 </div>
             </div>

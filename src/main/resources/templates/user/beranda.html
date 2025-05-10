@@ -18,7 +18,7 @@
             <div class="container-fluid d-flex flex-column">
                 <div class="d-flex justify-content-between align-items-center w-100">
                     <div class="d-flex align-items-center">
-                        <img src="../img/sekolah.png" class="logo-img w-75 h-75" alt="Logo Sekolah" />
+                        <img th:src="@{/sekolah.png}" class="logo-img w-75 h-75" alt="Logo Sekolah" />
                     </div>
 
                     <div class="text-center flex-grow-1">
@@ -72,9 +72,15 @@
     </header>
     <br>
     <main class="container my-4">
-        <section class="bg-secondary text-white text-center py-3 mb-4">
-            <h2 class="fw-bold">Beranda</h2>
-        </section>
+        <div class="grid text-center">
+            <div class="g-col-12 g-start-1">
+                <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded mx-auto">
+                    <div class="card-body">
+                        <p class="h1">Beranda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section class="mb-4 d-flex justify-content-center">
             <img src="https://cdn-sekolah.annibuku.com/40102675/5.jpg" alt="Gambar Utama" class="img-fluid h-50 w-50">
         </section>
