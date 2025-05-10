@@ -57,6 +57,9 @@ public class WebSecurity {
                                         "/beranda",
                                         "/profile",
                                         "/program",
+                                        "/kepsek.jpg",
+                                        "/sekolah.png",
+                                        "/struktur.jpg",
                                         "/struktur-organisasi",
                                         "/visi-misi",
                                         "/register"
