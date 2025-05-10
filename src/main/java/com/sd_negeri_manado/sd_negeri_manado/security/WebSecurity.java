@@ -42,29 +42,17 @@ public class WebSecurity {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers(
-                                        "/",
-                                        "/login",
-                                        "/css/**",
-                                        "/img/**",
-                                        "/images/**",
-                                        "/static/**",  // Pengecualian akses untuk /static/**
-                                        "/prestasi",
-                                        "/berita",
-                                        "/ekstrakurikuler",
-                                        "/galeri",
-                                        "/kontak",
-                                        "/beranda",
-                                        "/profile",
-                                        "/program",
-                                        "/struktur-organisasi",
-                                        "/visi-misi"
-                                ).permitAll()
-                                .anyRequest().authenticated()  // Semua request lainnya butuh autentikasi
-                )
+                                        .requestMatchers(HttpMethod.GET, "/", "/beranda", "/berita", "/ekstrakurikuler", "/galeri",
+                                                        "/kontak", "/prestasi", "/profile", "/program",
+                                                        "/struktur-organisasi","/visi-misi").permitAll()
+                                                        .requestMatchers(HttpMethod.POST, "/register").permitAll()
+                               // .permitAll().anyRequest().authenticated())
+                               .anyRequest().authenticated())
+            
                 .formLogin(login ->
                         login.loginPage("/login")
                                 .defaultSuccessUrl("/dashboard", true)
+                                .failureUrl("/")
                                 .permitAll()
                 )
                 .logout(logout ->
