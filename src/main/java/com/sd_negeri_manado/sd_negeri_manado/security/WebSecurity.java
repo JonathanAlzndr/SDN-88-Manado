@@ -48,7 +48,7 @@ public class WebSecurity {
                                         "/css/**",
                                         "/img/**",
                                         "/images/**",
-                                        "/static/**",  // Pengecualian akses untuk /static/**
+                                        "/static/**",
                                         "/prestasi",
                                         "/berita",
                                         "/ekstrakurikuler",
@@ -58,9 +58,10 @@ public class WebSecurity {
                                         "/profile",
                                         "/program",
                                         "/struktur-organisasi",
-                                        "/visi-misi"
+                                        "/visi-misi",
+                                        "/register"
                                 ).permitAll()
-                                .anyRequest().authenticated()  // Semua request lainnya butuh autentikasi
+                                .anyRequest().authenticated()
                 )
                 .formLogin(login ->
                         login.loginPage("/login")

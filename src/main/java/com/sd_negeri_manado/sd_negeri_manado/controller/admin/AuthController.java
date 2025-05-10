@@ -6,6 +6,7 @@ import com.sd_negeri_manado.sd_negeri_manado.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,8 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AuthController {
@@ -44,14 +48,15 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String registerUser(
+    @ResponseBody
+    public ResponseEntity<?> registerUser(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
             @RequestParam("email") String email,
             @RequestParam("name") String name) 
     {
         if (userRepository.findByUsername(username).isPresent()) {
-            return "Username sudah digunakan!";
+            return ResponseEntity.badRequest().build();
         }
         User user = new User();
         user.setUsername(username);
@@ -60,7 +65,7 @@ public class AuthController {
         user.setPassword(encoder.encode(password));
 
         userRepository.save(user);
-        return "User berhasil didaftarkan!";
+        return ResponseEntity.ok("Terdaftar");
     }
 
     @GetMapping("/admin/ganti-password")
