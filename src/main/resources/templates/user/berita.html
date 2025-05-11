@@ -97,12 +97,22 @@
             </div>
             <div class="row g-3">
                 <div class="col-12" th:each="berita : ${beritaList}">
-                    <div class="card w-100" style="background:#dedede;">
-                        <div class="card-body">
-                            <h5 class="fw-bold mb-1" th:text="${berita.title}">Judul Berita</h5>
-                            <small class="d-block mb-2"
-                                                                              th:text="${#dates.format(berita.date, 'd-M-yyyy')}">Tanggal</small>
-                            <div th:text="${berita.description}">Deskripsi</div>
+                    <div class="card w-100 mb-3" style="background:#dedede;">
+                        <div class="row g-0">
+                            <div class="col-md-3">
+                                <img th:src="@{'/public/images/' + ${berita.imageUrl}}"
+                                     class="img-fluid rounded-start"
+                                     alt="Gambar Berita"
+                                     style="height: 100px; object-fit: cover; width: 100%;" />
+                            </div>
+                            <div class="col-md-9">
+                                <div class="card-body">
+                                    <h5 class="fw-bold mb-1" th:text="${berita.title}">Judul Berita</h5>
+                                    <small class="d-block mb-2"
+                                           th:text="${#dates.format(berita.date, 'd-M-yyyy')}">Tanggal</small>
+                                    <div th:text="${berita.description}">Deskripsi</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
