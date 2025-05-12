@@ -62,7 +62,7 @@ footer {
 @keyframes login {
             0% {
                 opacity: 50%;
-                transform: translateY(-2rem) scale(0.8);
+                transform: translateY(-1rem) scale(0.8);
             }
 
             100% {

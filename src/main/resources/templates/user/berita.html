@@ -21,12 +21,13 @@
                     <div class="d-flex align-items-center">
                         <img th:src="@{/sekolah.png}" class="logo-img w-75 h-75" alt="Logo Sekolah" />
                     </div>
-    
+
                     <div class="text-center flex-grow-1">
                         <p class="h3 text-white m-0 me-3 me-md-5">SD NEGERI 88 MANADO</p>
                         <div class="collapse navbar-collapse mt-0 w-100 justify-content-end" id="navbarContent">
                             <ul class="navbar-nav">
-                                <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/beranda}">Beranda</a>
+                                <li class="nav-item px-2"><a class="nav-link text-white"
+                                                                                      th:href="@{/beranda}">Beranda</a>
                                 </li>
                                 <li class="nav-item dropdown px-2">
                                     <a class="nav-link dropdown-toggle text-white" href="#" role="button"
@@ -61,7 +62,7 @@
                             </ul>
                         </div>
                     </div>
-    
+
                     <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
                                                                       data-bs-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
@@ -71,7 +72,7 @@
         </nav>
     </header>
     <br>
-    <main style="height: 75vh;">
+    <main style="min-height: 100vh;">
         <div class="container py-4">
             <div class="row mb-3">
                 <div class="col-12">
@@ -100,16 +101,15 @@
                     <div class="card w-100 mb-3" style="background:#dedede;">
                         <div class="row g-0">
                             <div class="col-md-3">
-                                <img th:src="@{'/public/images/' + ${berita.imageUrl}}"
-                                     class="img-fluid rounded-start"
-                                     alt="Gambar Berita"
-                                     style="height: 100px; object-fit: cover; width: 100%;" />
+                                <img th:src="@{'/public/images/' + ${berita.imageUrl}}" class="img-fluid rounded-start"
+                                                                                  alt="Gambar Berita"
+                                                                                  style="height: 100px; object-fit: cover; width: 100%;" />
                             </div>
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h5 class="fw-bold mb-1" th:text="${berita.title}">Judul Berita</h5>
                                     <small class="d-block mb-2"
-                                           th:text="${#dates.format(berita.date, 'd-M-yyyy')}">Tanggal</small>
+                                                                                      th:text="${#dates.format(berita.date, 'd-M-yyyy')}">Tanggal</small>
                                     <div th:text="${berita.description}">Deskripsi</div>
                                 </div>
                             </div>
