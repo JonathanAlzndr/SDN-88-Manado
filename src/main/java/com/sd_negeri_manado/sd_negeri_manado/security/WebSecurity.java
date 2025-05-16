@@ -60,6 +60,7 @@ public class WebSecurity {
                                         "/kepsek.jpg",
                                         "/sekolah.png",
                                         "/struktur.jpg",
+                                        "/plang.jpg",
                                         "/public/images/**",
                                         "/struktur-organisasi",
                                         "/visi-misi",
