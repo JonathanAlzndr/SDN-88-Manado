@@ -56,7 +56,7 @@
                                 </li>
                                 <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/kontak}">Kontak</a>
                                 </li>
-                                <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/login}">Login</a>
+                                <li class="nav-item px-2"><a class="nav-link text-white" th:href="@{/login}">Masuk</a>
                                 </li>
                             </ul>
                         </div>
@@ -71,7 +71,7 @@
         </nav>
     </header>
     <br>
-    <main class="container my-4">
+    <main class="container my-4" style="min-height: 100vh;">
         <div class="grid text-center">
             <div class="g-col-12 g-start-1">
                 <div class="card w-75 shadow p-3 mb-5 bg-body-tertiary rounded mx-auto">
@@ -82,10 +82,10 @@
             </div>
         </div>
         <section class="mb-4 d-flex justify-content-center">
-            <img src="https://cdn-sekolah.annibuku.com/40102675/5.jpg" alt="Gambar Utama" class="img-fluid h-50 w-50">
+            <img th:src="@{/plang.jpg}" alt="Gambar Utama" class="img-fluid h-75 w-75">
         </section>
 
-        <section class="row">
+        <section class="row align-items-center">
             <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
                 <div class="card shadow-sm d-inline-block p-3" style="width: auto;">
                     <img th:src="@{/kepsek.jpg}" alt="Kepala Sekolah" class="card-img-top img-fluid mx-auto d-block"
@@ -97,10 +97,11 @@
                     <h5 class="fw-bold">Sambutan Kepala Sekolah</h5>
                     <p>Dengan penuh syukur, saya ucapkan selamat datang di SD 88 Manado, tempat tumbuhnya generasi
                         cerdas dan berakhlak mulia.
-                        Mari bersama kita wujudkan pendidikan yang bermutu dan berkarakteruntuk masa depan bangsa.</p>
+                        Mari bersama kita wujudkan pendidikan yang bermutu dan berkarakter untuk masa depan bangsa.</p>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="bg-danger text-white text-center py-3">

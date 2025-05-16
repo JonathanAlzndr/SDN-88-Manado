@@ -1,5 +1,6 @@
 body {
 	background-color: #f2f2f2;
+	font-family: 'Poppins', sans-serif;
 }
 
 /* header */
@@ -70,3 +71,5 @@ footer {
                 transform: translateY(0rem) scale(1);
             }
         }
+
+
