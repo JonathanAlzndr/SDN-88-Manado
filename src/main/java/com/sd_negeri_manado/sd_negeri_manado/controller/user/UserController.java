@@ -5,6 +5,7 @@ import com.sd_negeri_manado.sd_negeri_manado.entity.Extracurricular;
 import com.sd_negeri_manado.sd_negeri_manado.entity.Galery;
 import com.sd_negeri_manado.sd_negeri_manado.entity.News;
 import com.sd_negeri_manado.sd_negeri_manado.model.AchievementDtoView;
+import com.sd_negeri_manado.sd_negeri_manado.model.NewsDtoView;
 import com.sd_negeri_manado.sd_negeri_manado.repository.AchievementRepository;
 import com.sd_negeri_manado.sd_negeri_manado.repository.ExtracurricularRepository;
 import com.sd_negeri_manado.sd_negeri_manado.repository.GaleryRepository;
@@ -50,15 +51,28 @@ public class UserController {
 
     @GetMapping("/berita")
     public String berita(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
-        List<News> beritaList;
+        List<News> list;
         if (keyword != null && !keyword.isEmpty()) {
-            beritaList = newsRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
+            list = newsRepository.findByTitleContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
         } else {
-            beritaList = newsRepository.findAll();
+            list = newsRepository.findAll();
+        }
+
+        Locale locale = new Locale("id", "ID");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd MMMM yyyy", locale);
+        List<NewsDtoView> beritaList = new ArrayList<>();
+        for(News item : list) {
+            NewsDtoView dto = NewsDtoView.builder()
+                    .title(item.getTitle())
+                    .formattedDate(sdf.format(item.getDate()))
+                    .imageUrl(item.getImageUrl())
+                    .description(item.getDescription())
+                    .build();
+            beritaList.add(dto);
         }
 
         model.addAttribute("beritaList", beritaList);
-        model.addAttribute("keyword", keyword); // supaya input tetap ada nilainya
+        model.addAttribute("keyword", keyword);
         return "/user/berita";
     }
 

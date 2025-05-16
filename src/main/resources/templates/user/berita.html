@@ -108,8 +108,7 @@
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h5 class="fw-bold mb-1" th:text="${berita.title}">Judul Berita</h5>
-                                    <small class="d-block mb-2"
-                                                                                      th:text="${#dates.format(berita.date, 'd-M-yyyy')}">Tanggal</small>
+                                    <small class="d-block mb-2" th:text="${berita.formattedDate}">Tanggal</small>
                                     <div th:text="${berita.description}">Deskripsi</div>
                                 </div>
                             </div>
