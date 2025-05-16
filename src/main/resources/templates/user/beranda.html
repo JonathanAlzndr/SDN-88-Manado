@@ -85,22 +85,34 @@
             <img src="https://cdn-sekolah.annibuku.com/40102675/5.jpg" alt="Gambar Utama" class="img-fluid h-50 w-50">
         </section>
 
-        <section class="row">
-            <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
-                <div class="card shadow-sm d-inline-block p-3" style="width: auto;">
-                    <img th:src="@{/kepsek.jpg}" alt="Kepala Sekolah" class="card-img-top img-fluid mx-auto d-block"
-                                                                      style="max-width: 100%; height: auto;">
+        <section class="d-flex align-items-center flex-wrap">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-1">
+                        <img th:src="@{/kepsek.jpg}" alt="Kepala Sekolah" class="img-fluid rounded shadow w-100 ">
+                    </div>
+                    <div class="col-5">
+                        <div class="bg-light p-3 shadow-sm rounded">
+                            <h5 class="fw-bold mb-2">Sambutan Kepala Sekolah</h5>
+                            <p class="mb-0">
+                                Dengan penuh syukur, saya ucapkan selamat datang di SD 88 Manado, tempat tumbuhnya
+                                generasi cerdas
+                                dan
+                                berakhlak mulia.
+                                Mari bersama kita wujudkan pendidikan yang bermutu dan berkarakter untuk masa depan
+                                bangsa.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="bg-light p-3 shadow-sm rounded">
-                    <h5 class="fw-bold">Sambutan Kepala Sekolah</h5>
-                    <p>Dengan penuh syukur, saya ucapkan selamat datang di SD 88 Manado, tempat tumbuhnya generasi
-                        cerdas dan berakhlak mulia.
-                        Mari bersama kita wujudkan pendidikan yang bermutu dan berkarakteruntuk masa depan bangsa.</p>
-                </div>
-            </div>
+            <!-- Foto Kepala Sekolah -->
+            <!-- Kata Sambutan -->
+
         </section>
+
+
     </main>
 
     <footer class="bg-danger text-white text-center py-3">
