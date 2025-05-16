@@ -4,6 +4,7 @@ import com.sd_negeri_manado.sd_negeri_manado.entity.Achievement;
 import com.sd_negeri_manado.sd_negeri_manado.entity.Extracurricular;
 import com.sd_negeri_manado.sd_negeri_manado.entity.Galery;
 import com.sd_negeri_manado.sd_negeri_manado.entity.News;
+import com.sd_negeri_manado.sd_negeri_manado.model.AchievementDtoView;
 import com.sd_negeri_manado.sd_negeri_manado.repository.AchievementRepository;
 import com.sd_negeri_manado.sd_negeri_manado.repository.ExtracurricularRepository;
 import com.sd_negeri_manado.sd_negeri_manado.repository.GaleryRepository;
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class UserController {
@@ -80,7 +84,19 @@ public class UserController {
 
     @GetMapping("/prestasi")
     public String prestasi(Model model) {
-        List<Achievement> prestasiList = achievementRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        List<Achievement> list = achievementRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
+        Locale locale = new Locale("id", "ID");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, dd MMMM yyyy", locale);
+
+        List<AchievementDtoView> prestasiList = new ArrayList<>();
+        for(Achievement item : list) {
+            AchievementDtoView dto = AchievementDtoView.builder()
+                    .description(item.getDescription())
+                    .formattedDate(sdf.format(item.getDate()))
+                    .imageUrl(item.getImageUrl())
+                    .build();
+            prestasiList.add(dto);
+        }
         model.addAttribute("prestasiList", prestasiList);
         return "/user/prestasi";
     }

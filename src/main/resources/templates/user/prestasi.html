@@ -89,7 +89,7 @@
                         <img th:src="@{'/images/' + ${prestasi.imageUrl}}" class="card-img-top" alt="gambar prestasi" />
                         <div class="card-body">
                             <p class="h5" th:text="${prestasi.description}"></p>
-                            <p class="text-muted" th:text="${#dates.format(prestasi.date, 'dd-MM-yyyy')}"></p>
+                            <p class="text-muted" th:text="${prestasi.formattedDate}"></p>
                         </div>
                     </div>
                 </div>
